@@ -1,0 +1,13 @@
+xrun: 21.03-s009: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
+TOOL:	xrun	21.03-s009: Started on Oct 17, 2023 at 13:44:47 CEST
+xrun
+	+compile
+	+sv
+	-f /home/student/jbien/VDIC/.dvt/lab01.build
+		-F lab01/tb/tb.f
+			../../common/vdic_dut_2023.svp
+			vdic_dut_2023_tb.sv
+file: lab01/tb/vdic_dut_2023_tb.sv
+	module worklib.top:sv
+		errors: 0, warnings: 0
+TOOL:	xrun	21.03-s009: Exiting on Oct 17, 2023 at 13:44:47 CEST  (total: 00:00:00)

@@ -1,0 +1,25 @@
+	Top level design units:
+		top
+xcelium> source /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools/xcelium/files/xmsimrc
+xcelium> source /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> run
+19990 Clock cycles elapsed: 1000
+39990 Clock cycles elapsed: 2000
+[1;30m[102m-----------------------------------
+----------- Test PASSED -----------
+-----------------------------------[0m
+
+Simulation complete via $finish(1) at time 44900 NS + 0
+../tb/tinyalu_tb.sv:181     $finish;
+xcelium> exit
+See ./cov_work/scope/test/icc.com file for message(s) on coverage constant object marking
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  top(top)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_776668d4_30945826.ucm
+  data               :  ./cov_work/scope/test/icc_776668d4_30945826.ucd

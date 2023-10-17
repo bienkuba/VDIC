@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<build-config version="2">
+    <current-build-name>lab01</current-build-name>
+    <design-hierarchy-top language="VLOG"/>
+    <design-hierarchy-top-elab language="VLOG">16384'work.128'top.top</design-hierarchy-top-elab>
+    <verification-hierarchy-top language=""/>
+</build-config>
