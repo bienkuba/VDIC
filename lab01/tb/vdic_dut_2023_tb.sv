@@ -95,7 +95,7 @@ end
 initial begin
     longint clk_counter;
     clk_counter = 0;
-    forever begin
+    forever begins
         @(posedge clk) clk_counter++;
         if(clk_counter % 1000 == 0) begin
             $display("%0t Clock cycles elapsed: %0d", $time, clk_counter);
@@ -119,7 +119,7 @@ function logic signed [15:0] get_data();
     zero_ones = 3'($random);
 
     if (zero_ones == 3'b000)
-        return 16'sh8FFF;
+        return 16'sh8000;
     else if (zero_ones == 3'b111)
         return 16'sh7FFF;
     else
@@ -136,7 +136,7 @@ function logic check_parity(logic signed [15:0] arg);
 	
 	zero_ones 	= 2'($random);
 	ret 		= ^arg; 
-	ret_wrong 	= ^arg + 1;
+	ret_wrong 	= !ret;
 	
 	if (zero_ones == 2'b00)
         return(ret_wrong);
@@ -153,7 +153,7 @@ initial begin : tester
 	logic			[31:0]	counter;
     reset();
     repeat (1000) begin : tester_main_blk
-        @(posedge clk);
+        @(negedge clk);
         arg_a			= get_data();
         arg_b			= get_data();
 	    arg_a_parity 	= check_parity(arg_a);
@@ -167,9 +167,11 @@ initial begin : tester
 	    `endif
 	    
              begin : case_default_blk
-                wait(ack);
-	            wait(result_rdy);
-                @(posedge clk);
+//	            wait(ack);
+//	            wait(result_rdy);
+	            while(!ack)@(negedge clk);
+	            while(!result_rdy)@(negedge clk);
+	            
                 req = 1'b0;
                 //------------------------------------------------------------------------------
                 // temporary data check - scoreboard will do the job later
